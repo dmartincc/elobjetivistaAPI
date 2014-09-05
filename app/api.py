@@ -24,7 +24,7 @@ def api():
 		   "articles":"/api/0.1/articles"}}
 	return jsonify(dic)
 
-@app.route("/api/0.1/articles", methods=["GET","POST"])
+@app.route("/api/articles", methods=["GET","POST"])
 def articles():
 	if request.args.get('num'):
 		num = request.args.get('num')
@@ -43,7 +43,7 @@ def articles():
 	response['num']=len(documents)
 	return jsonify(response)
 
-@app.route("/api/0.1/articles/<category>", methods=["GET","POST"])
+@app.route("/api/articles/<category>", methods=["GET","POST"])
 def categories(category):
 	db = get_db('dev-ethinker')	
 	data = db.articles.find({"date":{"$gt": period},"tags":category})	

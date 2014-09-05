@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="El Objetivista - Noticias aleatorias de medios online">
+    <meta name="author" content="El Objetivista">
+    <meta name="keywords" content="el objetivista, noticias, noticias aleatorias, titulares, titulares aleatorios, noticias ultima hora, titulares ultima hora">
+    <meta name="p:domain_verify" content="f70ec1cd005b96ad13011e28e712b83c"/>
+    <meta property="twitter:account_id" content="4503599627756671" />
+    <link rel="shortcut icon" href="static/label.png">    
+    <title>El Objetivista - Noticias aleatorias</title>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="static/css/foundation.css" />
+    <script src="static/js/vendor/modernizr.js"></script>
+    <script src="http://packery.metafizzy.co/packery.pkgd.min.js"></script>
+    <style>
+     .top-bar{
+     color:white;
+     }
+     
+    @media only screen and (max-width: 767px) {
+        h4 {
+          font-size: 0.8em;
+       }       
+       h3 {
+          font-size: 1em;
+       }
+       p {
+          font-size: 0.6em;
+       }
+      img{
+            height: 250px;  
+                        
+       }
+        .pic{
+            height: 100px;
+            width: 100px;    
+       }
+    }
+    @media only screen and (min-width: 768px) {
+       img{
+            height: 350px;  
+                        
+       }
+        .pic{
+            height:200px;
+            width: 100%;    
+       }
+    }
+
+    .item { width: 25%; }
+  .item.w2 { width: 50%; }
+
+        
+    </style>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45164598-1', 'elobjetivista.com');
+  ga('send', 'pageview');
+
+</script>
+   
+</head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+       <div class="row">
+          <div class="large-12 columns">
+            <nav class="top-bar" data-topbar="">
+              <ul class="title-area">
+                <!-- Title Area -->
+                <li class="name">
+                  <h1 class="lead"><a href="#">ElObjetivista</a></h1>
+                </li>
+                <li class="toggle-topbar menu-icon">
+                  <a href="#"><span>menu</span></a>
+                </li>
+              </ul>              
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul class="right">
+                  <li class="divider"></li>
+                  <li class="has-dropdown not-click">
+                    <a href="#">Secciones</a>
+                    <ul class="dropdown"><li class="title back js-generated">
+                      <li><label>Secciones</label></li>                  
+                      <li>
+                        <a href="#">Portada</a>
+                      </li>
+                      <li>
+                        <a href="http://www.elobjetivista.com/analytics">Analytics</a>
+                      </li>                       
+                </ul>
+              </section></nav><!-- End Top Bar -->
+          </div>
+        </div>
+        
+        <div class="row">  
+             <div class="large-12 columns">               
+                 {% block content %}{% endblock %}                        
+           </div>
+       </div>
+       <div class="row">        
+             <div class="small-12 columns">                
+               <div class="magellan-container" data-magellan-expedition="fixed" data-options="throttle_delay:0;" style="">
+                   <div class="small-4  columns">
+                    <p>{{now}}</p>
+                    </div>                  
+                  <div class="small-7  columns">
+                    <!-- AddThis Button BEGIN -->                                       
+                    <div class="addthis_toolbox addthis_default_style">                    
+                    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                    <a class="addthis_button_tweet"></a>
+                    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+                    <a class="addthis_counter addthis_pill_style"></a>
+                    </div>
+                    
+                    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5268d2a97e02b5bb"></script>
+                </div>
+                <div class="small-1  columns">
+                    <div id="yo-button"></div>
+                  </div>
+                </div>                   
+            </div>
+       </div> 
+       <div class="row">        
+             <div class="large-12 columns">
+              <!--div id="container" class="js-packery"  data-packery-options='{ "itemSelector": ".item", "gutter": 10 }'-->
+             {% block entities %}{% endblock %} 
+            <!--/div-->
+            {% block analytics %}{% endblock %} 
+            </div>
+       </div>         
+    <!-- FOOTER -->      
+    <div class="row">
+       <div class="large-12 columns"> 
+       <hr>       
+        <p>&copy; 2014 El Objetivista</p>       
+    </div>    
+  
+   
+    <!-- AddThis Smart Layers BEGIN -->
+    <!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5268d2a97e02b5bb"></script>
+    <script type="text/javascript">
+      addthis.layers({
+        'theme' : 'transparent',
+        'follow' : {
+          'services' : [            
+            {'service': 'twitter', 'id': 'ElObjetivista'},
+            {'service': 'facebook', 'id': 'pages/El-Objetivista/568224576584522'},
+            {'service': 'google_follow', 'id': 'u/0/b/103518538726540749073/103518538726540749073/posts'}          
+          ]
+        },  
+        'whatsnext' : {}        
+      });
+    </script>
+    <!-- AddThis Smart Layers END --> 
+    <script type="text/javascript">
+      var _yoData = {
+        "username": "ELOBJETIVISTA",
+        "trigger": "hay noticias importantes"
+      };
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.src = "//yoapp.s3.amazonaws.com/js/yo-button.js";
+      (document.head || document.getElementsByTagName("head")[0]).appendChild(s);
+    </script>       
+      
+    </div><!-- /.container -->
+
+    <!-- Foundation core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="static/js/vendor/jquery.js"></script>
+    <script src="static/js/foundation.min.js"></script>
+    <script src="static/js/foundation/foundation.orbit.js"></script>
+    <script>
+      $(document).foundation();   
+      var $container = $('#container');
+      // init
+      $container.packery({
+        itemSelector: '.item',
+        gutter: 10
+      });
+      
+    </script>
+  </body>
+</html>

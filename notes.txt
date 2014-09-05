@@ -1,0 +1,2 @@
+http://www.google.com/trends/hottrends/atom/feed?pn=p26
+https://www.google.es/?#q=query

@@ -1,0 +1,8 @@
+Flask==0.10.1
+Jinja2==2.7.1
+MarkupSafe==0.18
+Werkzeug==0.9.4
+gunicorn==18.0
+itsdangerous==0.23
+http://pyyaml.org/download/pyyaml/PyYAML-3.10.tar.gz
+nltk==2.0.4

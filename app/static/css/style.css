@@ -1,0 +1,132 @@
+
+.loading_txt { font-size:18px;font-weight: 200;color:#2980b9;
+            -webkit-font-smoothing:antialiased;-webkit-text-stroke:0.35px; }
+    
+
+.container-radius {
+	  overflow: hidden;
+    border: 1px solid #E8E8E8;  
+    border-radius: 4px;
+}
+
+body {
+           
+            font-family: 'Open Sans Condensed', sans-serif;
+            background-color:#FAFAFA;
+            width:100%;
+        }
+     
+.top-bar{
+     background-color:#67A7FF;
+     height: 54px;
+     position:fixed;
+     width:100%;
+     z-index:10;
+     }   
+   
+.title{position:relative;}
+.container{height:100%;
+width:100%;}
+    
+
+    .image{height:15px;}
+
+
+    .image.a {    
+        position: absolute;
+        float: left;
+        width:100%;
+        bottom:0;
+        background-color:  #00ABB2;
+        opacity: 0.98;
+    }
+
+      
+    
+    .image.b{
+        position: absolute;
+        float: left;
+        width:100%;
+        bottom:0;        
+        opacity: 0.98;
+       
+       background-color: #B2127B;
+       
+    }
+    .image.c{
+       position: absolute;
+        float: left;
+        width:100%;
+        bottom:0;
+        
+        opacity: 0.98;
+       background-color: #FFDA00;
+       
+    }
+
+    .image.d{
+           position: absolute;
+        float: left;
+        width:100%;
+        bottom:0;
+        
+        opacity: 0.98;
+           background-color: #FF0054;
+           
+        }
+
+        @media only screen and (max-width: 767px) {
+        h6, h5, h4 {
+          font-size: 0.75em;
+       }       
+       h3 {
+          font-size: 1em;
+       }
+       p {
+          font-size: 0.9em;
+       }
+      img{
+            height: 250px;  
+                        
+       }
+        .pic{
+            height: 100px;
+            width: 100px;    
+       }
+    }
+    @media only screen and (min-width: 768px) {
+       img{
+            height: 350px;  
+                        
+       }
+        .pic{
+            height:200px;
+            width: 100%;    
+       }
+    }
+
+    .bar {
+      fill: #A8ABBF;
+    }
+    #header {
+      background-color: black;
+    }
+
+    #ban {
+      background-color: #E8E8E8 ;
+      height:30px;
+      position:fixed;
+      width:100%;
+      top:54px;
+      z-index:10;
+    }
+
+    #ban2 {
+      background-color: #C8C8C8 ;
+    }
+
+  .footer{      
+      background-color: #67A7FF;      
+      width: 100%;
+      height:100%;    
+  }

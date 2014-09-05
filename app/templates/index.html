@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+ <ul class="slider" data-orbit style="height:300px;" data-options="bullets:false;" >
+{% for item in news %}
+ <li id="slide">
+    {% if item.image %}
+         
+        <img src={{item.image}} style="width:100%; overflow:hidden;" />
+         <div class="orbit-caption" style="background-color : transparent;">                                                        
+            <div class="small-10 small-centered columns" style="text-align: center">
+                <h3 style="color:white;">{{item.title}}</h3>
+                <p style="color:white;">{{item.author}}</p>
+                <a href={{item.link}} class="button tiny success" target="_blank">Leer</a>
+            </div>                         
+        </div>
+      {% else %} 
+      <img src="static/background.png" style="width:100%; overflow:hidden;" />
+         <div class="orbit-caption" style="background-color : transparent;">                                                        
+            <div class="small-10 small-centered columns" style="text-align: center">
+                <h3 style="color:white;">{{item.title}}</h3>
+                <p style="color:white;">{{item.author}}</p>
+                <a href={{item.link}} class="button tiny success" target="_blank">Leer</a>
+            </div>                         
+        </div>
+    
+ {% endif %}    
+</li>   
+{% endfor %}
+</ul>
+{% endblock %}
+
+{% block entities %}
+{% for item in entities %}
+ <div class="row">
+    
+                {% if item.author %}
+                {% if item.image %}               
+                <hr>
+                  <div class="small-4 columns item">
+                           <img class="pic" src={{item.image}}>
+                  </div>
+                  <div class="small-8 columns">
+                           <h4 data-reveal-id={{item.author}}>{{item.title}}</h4>  
+                           <p>{{item.author}}</p>                      
+                            <a href={{item.link}} class="button tiny success" target="_blank">Leer</a>
+                             <div class="row"> 
+                            <div class="small-4 columns">
+                           <div id={{item.author}} class="reveal-modal tiny" data-reveal>
+                            <img src={{item.image}}>
+                              <h4>{{item.title}}</h4>
+                              <p class="lead">{{item.author}}</p> 
+                              <p >{{item.description}}</p> 
+                              <a href={{item.link}} class="button tiny success" target="_blank">Leer</a>
+                              <a class="close-reveal-modal">&#215;</a>
+                              </div>
+                            </div>  
+                        </div>                             
+                   </div>                
+                  {% else %}
+                  <hr>
+                  <div class="small-11 columns">
+                           <h4 data-reveal-id={{item.author}}>{{item.title}}</h4>  
+                           <p>{{item.author}}</p>                      
+                            <a href={{item.link}} class="button tiny success" target="_blank">Leer</a>
+                             <div class="row"> 
+                            <div class="small-2 columns">
+                           <div id={{item.author}} class="reveal-modal tiny" data-reveal>
+                              <h4>{{item.title}}</h4>
+                              <p class="lead">{{item.author}}</p> 
+                              <p >{{item.description}}</p> 
+                              <a href={{item.link}} class="button tiny success" target="_blank">Leer</a>
+                              <a class="close-reveal-modal">&#215;</a>
+                              </div>
+                            </div>  
+                        </div>                             
+                   </div>                                
+                  
+                 {% endif %}
+                 {% endif %}
+                    
+</div>
+  
+
+{% endfor %}
+{% endblock %}

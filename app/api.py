@@ -13,38 +13,37 @@ def get_db(db_name):
     db = client[db_name]
     return db  
 
-@app.route("/api", methods=["GET","POST"])
+@app.route("/", methods=["GET","POST"])
 def api():
 
-	dic = {"name":"elobjetivista API",
+	dic = {"name":"elobjetivista-API",
 		   "version":0.1,
 		   "owner":"elobjetivista.com",
 		   "datapoints":{
-		   "trends":"/api/0.1/trends",
-		   "articles":"/api/0.1/articles"}}
+		   "trends":"/trends",
+		   "articles":"articles"}}
 	return jsonify(dic)
 
-@app.route("/api/0.1/articles", methods=["GET","POST"])
+@app.route("/articles", methods=["GET","POST"])
 def articles():
 	if request.args.get('num'):
 		num = request.args.get('num')
 	else:
 		num = 20
-	db = get_db('dev-ethinker')
 	response={}
 	documents=[]
+	db = get_db('dev-ethinker')
 	data = db.articles.find({"date":{"$gt": period}}).limit(num)
 	for document in data:
 		document['_id']=str(document['_id'])
 		document['date']=str(document['date'])
 		documents.append(document)	
 
-	response['result']=documents
-	response['num']=len(documents)
-	response.headers['Access-Control-Allow-Origin'] = '*'
-	return jsonify(response)
+	res = jsonify(items=documents)
+	res.headers['Access-Control-Allow-Origin'] = '*'
+	return res
 
-@app.route("/api/0.1/articles/<category>", methods=["GET","POST"])
+@app.route("/articles/<category>", methods=["GET","POST"])
 def categories(category):
 	db = get_db('dev-ethinker')	
 	data = db.articles.find({"date":{"$gt": period},"tags":category})	
@@ -56,21 +55,21 @@ def categories(category):
 		document['date']=str(document['date'])
 		documents.append(document)	
 
-	response['result']=documents
-	response.headers['Access-Control-Allow-Origin'] = '*'
-	return jsonify(response)
+	res = jsonify(items=documents)
+	res.headers['Access-Control-Allow-Origin'] = '*'
+	return res
 
-@app.route("/api/0.1/trends", methods=["GET","POST"])
-def trends():
-	db = get_db('dev-ethinker')
+@app.route("/trends", methods=["GET","POST"])
+def trends():	
 	response={}
 	documents=[]
+	db = get_db('dev-ethinker')
 	data = db.trends.find().sort('date',-1).limit(1)	
 	for document in data:
 		document['_id']=str(document['_id'])
 		document['date']=str(document['date'])
 		documents.append(document)
 		
-	response['result']=documents
-	response.headers['Access-Control-Allow-Origin'] = '*'
-	return jsonify(response)
+	res = jsonify(items=documents)
+	res.headers['Access-Control-Allow-Origin'] = '*'
+	return res

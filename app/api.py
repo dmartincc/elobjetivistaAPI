@@ -24,7 +24,7 @@ def api():
 		   "articles":"/api/0.1/articles"}}
 	return jsonify(dic)
 
-@app.route("/api/0.1/articles", methods=["GET","POST"])
+@app.route("/articles", methods=["GET","POST"])
 def articles():
 	if request.args.get('num'):
 		num = request.args.get('num')

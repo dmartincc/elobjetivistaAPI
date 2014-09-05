@@ -24,7 +24,7 @@ def api():
 		   "articles":"/api/0.1/articles"}}
 	return jsonify(dic)
 
-@app.route("/api/articles", methods=["GET","POST"])
+@app.route("/api/0.1/articles", methods=["GET","POST"])
 def articles():
 	if request.args.get('num'):
 		num = request.args.get('num')
@@ -41,9 +41,10 @@ def articles():
 
 	response['result']=documents
 	response['num']=len(documents)
+	response.headers['Access-Control-Allow-Origin'] = '*'
 	return jsonify(response)
 
-@app.route("/api/articles/<category>", methods=["GET","POST"])
+@app.route("/api/0.1/articles/<category>", methods=["GET","POST"])
 def categories(category):
 	db = get_db('dev-ethinker')	
 	data = db.articles.find({"date":{"$gt": period},"tags":category})	
@@ -56,6 +57,7 @@ def categories(category):
 		documents.append(document)	
 
 	response['result']=documents
+	response.headers['Access-Control-Allow-Origin'] = '*'
 	return jsonify(response)
 
 @app.route("/api/0.1/trends", methods=["GET","POST"])
@@ -70,5 +72,5 @@ def trends():
 		documents.append(document)
 		
 	response['result']=documents
-	
+	response.headers['Access-Control-Allow-Origin'] = '*'
 	return jsonify(response)

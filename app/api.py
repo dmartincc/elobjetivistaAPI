@@ -34,7 +34,7 @@ def articles():
 	response={}
 	documents=[]
 	db = get_db('dev-ethinker')
-	data = db.articles.find({"date":{"$gt": period}}).limit(num)
+	data = db.articles.find({"date":{"$gt": period}}).limit(num).sort("date",-1)
 	for document in data:
 		document['_id']=str(document['_id'])
 		document['date']=str(document['date'])
@@ -62,7 +62,7 @@ def article(idnum):
 @app.route("/articles/<category>", methods=["GET","POST"])
 def categories(category):
 	db = get_db('dev-ethinker')	
-	data = db.articles.find({"date":{"$gt": period},"tags":category})	
+	data = db.articles.find({"date":{"$gt": period},"tags":category}).sort("date",-1)	
 	response={}
 	documents=[]
 

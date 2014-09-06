@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from flask import current_app, Blueprint, render_template, abort, request, flash, redirect, url_for, jsonify
 from jinja2 import TemplateNotFound
 from app import app
+from bson.objectid import ObjectId 
 
 period = datetime.now() - timedelta(hours=6)
 
@@ -21,7 +22,7 @@ def api():
 		   "owner":"elobjetivista.com",
 		   "datapoints":{
 		   "trends":"/trends",
-		   "articles":"articles"}}
+		   "articles":"/articles"}}
 	return jsonify(dic)
 
 @app.route("/articles", methods=["GET","POST"])
@@ -34,6 +35,21 @@ def articles():
 	documents=[]
 	db = get_db('dev-ethinker')
 	data = db.articles.find({"date":{"$gt": period}}).limit(num)
+	for document in data:
+		document['_id']=str(document['_id'])
+		document['date']=str(document['date'])
+		documents.append(document)	
+
+	res = jsonify(items=documents)
+	res.headers['Access-Control-Allow-Origin'] = '*'
+	return res
+
+@app.route("/articles/id/<idnum>", methods=["GET","POST"])
+def article(idnum):
+	response={}
+	documents=[]
+	db = get_db('dev-ethinker')
+	data = db.articles.find({"_id":ObjectId(idnum)})
 	for document in data:
 		document['_id']=str(document['_id'])
 		document['date']=str(document['date'])
